@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles.css';
 import PortfolioThumbnail from '../../components/PortfolioThumbnail';
 import {fetchData} from "../../services";
@@ -19,11 +19,11 @@ const Home: React.FC = () => {
     const config = useConfig() as any;
 
 
-
     return (
         <div className="home">
             <div className="grid-container">
-                <div>{config ? `API Base URL: ${config.apiBaseUrl}` : 'Loading config...'}</div>;
+                <div>{config ? `API Base URL: ${config.apiBaseUrl}` : 'Loading config...'}</div>
+                ;
                 <PortfolioThumbnail/>
                 {/* More thumbnails or components can be added here */}
             </div>
