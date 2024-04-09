@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import './styles.css';
 import PortfolioThumbnail from '../../components/PortfolioThumbnail';
 import {fetchData} from "../../services";
-import ConfigContext from "../../utils/config/ConfigContext";
+import useConfig from "../../utils/hooks/useConfig";
 
 const Home: React.FC = () => {
 
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
         getData();
     }, []);
-    const config = useContext(ConfigContext) as any;
+    const config = useConfig() as any;
 
 
 
