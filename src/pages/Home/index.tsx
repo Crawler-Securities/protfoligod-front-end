@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './styles.css';
 import PortfolioThumbnail from '../../components/PortfolioThumbnail';
-import {fetchData} from "../../services";
+import {fetchData} from "../../services/backend";
 import useConfig from "../../utils/hooks/useConfig";
 
 const Home: React.FC = () => {
@@ -23,7 +23,6 @@ const Home: React.FC = () => {
         <div className="home">
             <div className="grid-container">
                 <div>{config ? `API Base URL: ${config.apiBaseUrl}` : 'Loading config...'}</div>
-                ;
                 <PortfolioThumbnail/>
                 {/* More thumbnails or components can be added here */}
             </div>

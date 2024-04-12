@@ -6,13 +6,9 @@ import LoadingConfigScreen from "./LoadingConfigScreen";
 const ConfigProvider = ({ children }) => {
     const [config, setConfig] = useState(null);
 
-    // Simulate a delay in the fetch
-    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
     useEffect(() => {
         fetch('/config.json')
             .then(async (response) => {
-                await sleep(2000);
                 return response;
             })
             .then((response) => response.json())
