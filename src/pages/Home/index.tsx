@@ -17,15 +17,16 @@ const Home: React.FC = () => {
 
         getData();
     }, []);
-    const config = useConfig() as any;
-
+    const config = useConfig();
+    const CPAPIUrl = config.CPAPIUrl;
+    const authUrl = `${CPAPIUrl}`;
 
     return (
         <div className="home">
             <div className="grid-container">
                 <div>{config ? `API Base URL: ${config.apiBaseUrl}` : 'Loading config...'}</div>
                 {/*<PortfolioThumbnail/>*/}
-                <CPAPIAuthPopup />
+                <CPAPIAuthPopup authUrl={authUrl}/>
                 {/* More thumbnails or components can be added here */}
             </div>
         </div>
