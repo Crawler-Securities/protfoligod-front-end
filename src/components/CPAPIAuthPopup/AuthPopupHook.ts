@@ -19,24 +19,6 @@ const useAuthPopup = (authUrl: string) => {
         setPopup(newPopup);
     }, [authUrl, popup]);  // Include popup to properly handle its closure
 
-    // Check the URL and close the popup if authentication is successful
-    const checkAuthSuccess = useCallback(() => {
-        if (!popup) return;
-
-        try {
-            // Check if the popup has navigated to the specific path
-
-            // if (popup.location.href.includes('/sso/Dispatch')) {
-            if (popup.location.href.includes('/ibkr')) {
-                console.log('Authentication successful, closing popup.');
-                popup.close();
-                setPopup(null);
-            }
-        } catch (e) {
-            // Errors are thrown if the popup navigates to a different origin
-            console.log('Waiting for authentication...');
-        }
-    }, [popup]);  // Depends on the popup
 
     // Effect to set up interval to monitor popup URL and close state
     useEffect(() => {
@@ -47,8 +29,6 @@ const useAuthPopup = (authUrl: string) => {
                     console.log('Popup has been closed manually.');
                     clearInterval(interval);
                     setPopup(null);  // Ensure popup state is cleaned up after closing
-                } else {
-                    checkAuthSuccess();
                 }
             }, 1000);
         }
@@ -58,7 +38,7 @@ const useAuthPopup = (authUrl: string) => {
                 clearInterval(interval);
             }
         };
-    }, [popup, checkAuthSuccess]);  // Now includes checkAuthSuccess
+    }, [popup]);  // Now includes checkAuthSuccess
 
     return { openPopup };
 };

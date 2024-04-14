@@ -8,17 +8,17 @@ interface CPAPIAuthPopupProps {
 }
 
 const CPAPIAuthPopup: React.FC<CPAPIAuthPopupProps> = ({authUrl}: CPAPIAuthPopupProps) => {
-    const [popup, setPopup] = useState<Window | null>(null);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [popUpBlocked, setPopUpBlocked] = useState(false);
     const authPopup = useAuthPopup(authUrl);
 
     return (
         <div>
+
+            {/* This button shouldn't be here*/}
             <button onClick={async () => {
                 let ibkrh = new IBKRHandler();
-                // let res = await ibkrh.isConnectedStatus();
-                let res = false;
+                let res = await ibkrh.isConnectedStatus();
                 if (res) {
                     setSnackbarOpen(true);
                     return;
