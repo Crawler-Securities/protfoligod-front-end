@@ -1,0 +1,7 @@
+{
+  "apiBaseUrl": "https://api.example.com",
+  "featureToggle": true,
+  "isDemo": true,
+  "CPAPIUrl": "https://localhost:5000",
+  "backendUrl": "https://localhost:8000"
+}
