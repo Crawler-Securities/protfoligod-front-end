@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import useConfig from "../../utils/hooks/useConfig";
-import CPAPIAuthPopup from "../../components/CPAPIAuthPopup";
+import CPAPIAuthPopupButton from "../../components/CPAPIAuthPopupButton";
 
 const Home: React.FC = () => {
 
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     return (
         <div className="home">
             <div className="grid-container">
-                <CPAPIAuthPopup authUrl={authUrl}/>
+                <CPAPIAuthPopupButton authUrl={authUrl}/>
             </div>
         </div>
     );

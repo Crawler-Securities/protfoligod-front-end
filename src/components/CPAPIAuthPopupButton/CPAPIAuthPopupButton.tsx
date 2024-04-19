@@ -7,7 +7,7 @@ interface CPAPIAuthPopupProps {
     authUrl: string;
 }
 
-const CPAPIAuthPopup: React.FC<CPAPIAuthPopupProps> = ({authUrl}: CPAPIAuthPopupProps) => {
+const CPAPIAuthPopupButton: React.FC<CPAPIAuthPopupProps> = ({authUrl}: CPAPIAuthPopupProps) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [popUpBlocked, setPopUpBlocked] = useState(false);
     const authPopup = useAuthPopup(authUrl);
@@ -65,4 +65,4 @@ const CPAPIAuthPopup: React.FC<CPAPIAuthPopupProps> = ({authUrl}: CPAPIAuthPopup
     );
 }
 
-export default CPAPIAuthPopup;
+export default CPAPIAuthPopupButton;
